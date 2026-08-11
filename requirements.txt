@@ -1,0 +1,7 @@
+ultralytics>=8.0.0
+opencv-python>=4.7.0
+numpy>=1.23.0
+pandas>=1.5.0
+matplotlib>=3.6.0
+pyzenoh>=0.10.0
+psycopg2-binary>=2.9.0
