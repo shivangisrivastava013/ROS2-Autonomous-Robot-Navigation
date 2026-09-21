@@ -21,7 +21,7 @@ jobs:
       - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install -r requirements-dev.txt
 
       - name: Run Ruff Linting
         run: python -m ruff check .
@@ -39,3 +39,23 @@ jobs:
 
       - name: Build Docker Image
         run: docker build -t ros2-autonomous-robot-navigation:latest .
+
+  ros2-colcon-build:
+    runs-on: ubuntu-latest
+    container:
+      image: ros:humble-ros-base-jammy
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install ROS2 Build Tools
+        run: |
+          apt-get update && apt-get install -y python3-colcon-common-extensions python3-rosdep
+          rosdep update || true
+
+      - name: Build Package with Colcon
+        run: |
+          mkdir -p /tmp/ros2_ws/src
+          cp -r . /tmp/ros2_ws/src/robot_nav
+          cd /tmp/ros2_ws
+          . /opt/ros/humble/setup.sh
+          colcon build --packages-select robot_nav
