@@ -1,0 +1,24 @@
+{
+  "trial_id": "sim_trial_001",
+  "execution_mode": "standalone_simulation",
+  "total_steps": 50,
+  "collision_free_rate": 1.0,
+  "final_position": [
+    1.18,
+    0.39
+  ],
+  "velocity_stats": {
+    "avg_linear_x_m_s": 0.261,
+    "max_linear_x_m_s": 0.35
+  },
+  "state_machine_breakdown": {
+    "FORWARD": 36,
+    "TURN_LEFT": 9,
+    "EMERGENCY_STOP": 5
+  },
+  "state_percentages": {
+    "FORWARD": 72.0,
+    "TURN_LEFT": 18.0,
+    "EMERGENCY_STOP": 10.0
+  }
+}
