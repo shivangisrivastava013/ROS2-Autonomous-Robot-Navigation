@@ -1,5 +1,5 @@
-import pandas as pd
 import matplotlib.pyplot as plt
+import pandas as pd
 
 data = pd.read_csv("classes.csv", header=None, names=["class"])
 
@@ -15,9 +15,8 @@ plt.savefig("histogram.png")
 
 # Detection Results
 
-#All detections recorded during the run corresponded to the class "cone".
+# All detections recorded during the run corresponded to the class "cone".
 
-#This is expected because the simulated environment primarily contains cone objects used as navigation markers.
+# This is expected because the simulated environment primarily contains cone objects used as navigation markers.
 
-#The detection pipeline successfully captured and stored all events in the PostgreSQL database.
-
+# The detection pipeline successfully captured and stored all events in the PostgreSQL database.

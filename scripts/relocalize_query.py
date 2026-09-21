@@ -1,5 +1,6 @@
-import psycopg2
 import sys
+
+import psycopg2
 
 query_label = sys.argv[1] if len(sys.argv) > 1 else "suitcase"
 
@@ -12,7 +13,8 @@ conn = psycopg2.connect(
 )
 cur = conn.cursor()
 
-cur.execute("""
+cur.execute(
+    """
 SELECT
     p.place_id,
     p.place_label,
@@ -24,18 +26,22 @@ WHERE lower(o.object_class) = lower(%s)
 GROUP BY p.place_id, p.place_label
 ORDER BY matches DESC, best_confidence DESC
 LIMIT 3;
-""", (query_label,))
+""",
+    (query_label,),
+)
 
 rows = cur.fetchall()
 
 print(f"Top 3 candidate places for query label: {query_label}")
 for r in rows:
-    print({
-        "place_id": r[0],
-        "place_label": r[1],
-        "matches": r[2],
-        "best_confidence": float(r[3]) if r[3] is not None else None
-    })
+    print(
+        {
+            "place_id": r[0],
+            "place_label": r[1],
+            "matches": r[2],
+            "best_confidence": float(r[3]) if r[3] is not None else None,
+        }
+    )
 
 cur.close()
 conn.close()

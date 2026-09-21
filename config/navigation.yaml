@@ -1,0 +1,19 @@
+navigation_node:
+  ros__parameters:
+    navigation:
+      stop_distance: 0.45
+      slowdown_distance: 1.0
+      forward_speed: 0.35
+      turning_speed: 0.7
+      recovery_timeout_seconds: 4.0
+
+perception_node:
+  ros__parameters:
+    perception:
+      model_name: "yolov8n.pt"
+      confidence_threshold: 0.60
+      safety_classes:
+        - person
+        - car
+        - bicycle
+        - obstacle

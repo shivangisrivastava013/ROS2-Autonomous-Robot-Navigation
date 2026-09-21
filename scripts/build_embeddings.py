@@ -1,4 +1,3 @@
-import json
 import psycopg2
 from sentence_transformers import SentenceTransformer
 
@@ -51,11 +50,14 @@ for det_pk, raw_json in rows:
 
     vector_literal = "[" + ",".join(str(float(x)) for x in emb) + "]"
 
-    cur.execute("""
+    cur.execute(
+        """
         INSERT INTO detection_embeddings (det_pk, model, embedding)
         VALUES (%s, %s, %s::vector)
         ON CONFLICT (det_pk) DO NOTHING
-    """, (det_pk, "all-MiniLM-L6-v2", vector_literal))
+    """,
+        (det_pk, "all-MiniLM-L6-v2", vector_literal),
+    )
 
     inserted += 1
 

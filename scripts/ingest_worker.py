@@ -1,5 +1,6 @@
-import psycopg2
 import time
+
+import psycopg2
 
 conn = psycopg2.connect(
     dbname="maze",
