@@ -9,7 +9,7 @@ This directory contains empirical trial data, telemetry metrics, state machine d
 | **Total Navigation Steps** | `50` | Total discrete control loop iterations recorded in the trial |
 | **Collision-Free Rate** | `100% (1.0)` | Ratio of steps without physical collision with obstacles |
 | **Final Robot Coordinates** | `(1.18, 0.39)` | Endpoint coordinates `[x, y]` in meters relative to origin |
-| **Average Linear Velocity** | `0.268 m/s` | Mean forward velocity across all navigation states |
+| **Average Linear Velocity** | `0.261 m/s` | Mean forward velocity across all navigation states |
 | **Max Linear Velocity** | `0.350 m/s` | Top forward speed reached during clear path tracking |
 | **Execution Mode** | `standalone_simulation` | Headless ROS 2 Humble controller execution mode |
 
@@ -19,9 +19,9 @@ The navigation controller transitions between three discrete states depending on
 
 | State | Step Count | Percentage | Primary Behavior |
 | :--- | :---: | :---: | :--- |
-| **`FORWARD`** | 37 | 74.0% | Smooth waypoint tracking along target direction |
+| **`FORWARD`** | 36 | 72.0% | Smooth waypoint tracking along target direction |
 | **`TURN_LEFT`** | 9 | 18.0% | Active obstacle avoidance turning when clearance < 0.5m |
-| **`EMERGENCY_STOP`** | 4 | 8.0% | Immediate halt triggered when obstacle hazard detected |
+| **`EMERGENCY_STOP`** | 5 | 10.0% | Immediate halt triggered when obstacle hazard detected |
 
 ![State Machine Distribution](state_distribution.png)
 

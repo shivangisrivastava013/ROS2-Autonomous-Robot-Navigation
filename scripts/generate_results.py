@@ -1,5 +1,6 @@
 import json
 import os
+
 import matplotlib.pyplot as plt
 import pandas as pd
 
@@ -68,10 +69,16 @@ def generate_results():
     for bar in bars:
         height = bar.get_height()
         pct = (height / total_steps) * 100
-        ax.annotate(f"{height} ({pct:.1f}%)",
-                    xy=(bar.get_x() + bar.get_width() / 2, height),
-                    xytext=(0, 4), textcoords="offset points",
-                    ha="center", va="bottom", fontsize=9, fontweight="bold")
+        ax.annotate(
+            f"{height} ({pct:.1f}%)",
+            xy=(bar.get_x() + bar.get_width() / 2, height),
+            xytext=(0, 4),
+            textcoords="offset points",
+            ha="center",
+            va="bottom",
+            fontsize=9,
+            fontweight="bold",
+        )
 
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
