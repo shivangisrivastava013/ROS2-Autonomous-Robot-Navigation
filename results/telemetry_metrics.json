@@ -1,0 +1,14 @@
+{
+  "total_steps": 50,
+  "collision_free_rate": 1.0,
+  "final_position": [
+    1.1806419826396362,
+    0.3863407805783363
+  ],
+  "states_visited": [
+    "TURN_LEFT",
+    "EMERGENCY_STOP",
+    "FORWARD"
+  ],
+  "execution_mode": "standalone_simulation"
+}

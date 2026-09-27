@@ -4,6 +4,10 @@ __pycache__/
 .ipynb_checkpoints
 /results/*
 !/results/.gitkeep
+!/results/*.csv
+!/results/*.json
+!/results/*.png
+!/results/*.md
 *.pt
 *.onnx
 
